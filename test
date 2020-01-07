@@ -21,36 +21,20 @@ def saveFile(flag1, flag2):
     fopen.close()
 
 
-def mayuan(flag1, flag2, clear):
-    fopen = open('./archive/mayuan.json', 'r', encoding='UTF-8')
+def getQuestion(flag1, flag2, clear, path, judge):
+    fopen = open(path, 'r', encoding='UTF-8')
     questionList = json.loads(fopen.read())
     fopen.close()
-    while flag1 < len(questionList):
-        i = questionList[flag1]
+    # judge用于判断是马原还是毛概
+    if judge:
+        flag = flag1
+    else:
+        flag = flag2
+    while flag < len(questionList):
+        i = questionList[flag]
         while True:
             os.system(clear)
-            print(flag1 + 1, '/', len(questionList))
-            print(i['Description'])
-            print(i['ChoiceA'])
-            print(i['ChoiceB'])
-            print(i['ChoiceC'])
-            print(i['ChoiceD'])
-            answer = input('请输入答案:')
-            if answer == i['Answer']:
-                break
-        flag1 = flag1 = 1
-        saveFile(flag1, flag2)
-
-
-def maogai(flag1, flag2, clear):
-    fopen = open('./archive/maogai.json', 'r', encoding='UTF-8')
-    questionList = json.loads(fopen.read())
-    fopen.close()
-    while flag2 < len(questionList):
-        i = questionList[flag2]
-        while True:
-            os.system(clear)
-            print(flag2 + 1, '/', len(questionList))
+            print(flag + 1, '/', len(questionList))
             if len(i['Answer']) > 1:
                 print('注意:此题为多选题')
             print(i['Description'])
@@ -59,8 +43,12 @@ def maogai(flag1, flag2, clear):
             answer = input('请输入答案:')
             if answer == i['Answer']:
                 break
-        flag2 = flag2 + 1
-        saveFile(flag1, flag2)
+        flag = flag + 1
+        # 判断存档顺序
+        if judge:
+            saveFile(flag, flag2)
+        else:
+            saveFile(flag1, flag)
 
 
 def main():
@@ -70,12 +58,13 @@ def main():
         clear = 'cls'
     else:
         clear = 'clear'
+    path = ['./archive/mayuan.json', './archive/maogai.json']
     choice = input("请输入刷题科目:1.马原 2.毛概\n")
     # 因为有存档的需要，所以两个flag都需要作为参数传递
     if choice == '1':
-        mayuan(flag1, flag2, clear)
+        getQuestion(flag1, flag2, clear, path[0], True)
     elif choice == '2':
-        maogai(flag1, flag2, clear)
+        getQuestion(flag1, flag2, clear, path[1], False)
     empty = input("题目已刷完,是否清空进度以便二刷?(y/n)")
     if empty == 'y':
         if choice == '1':
