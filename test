@@ -1,77 +1,40 @@
 #!/usr/bin/env python3
 
-import os
-import json
 import platform
-
-
-def readFile():
-    fopen = open('./archive/flag', 'r', encoding='UTF-8')
-    flag1 = fopen.readline()
-    flag2 = fopen.readline()
-    fopen.close()
-    return int(flag1), int(flag2)
-
-
-def saveFile(flag1, flag2):
-    fopen = open('./archive/flag', 'w', encoding='UTF-8')
-    flag1 = str(flag1)
-    flag2 = str(flag2)
-    fopen.write(flag1 + '\n' + flag2)
-    fopen.close()
-
-
-def getQuestion(flag1, flag2, clear, path, judge):
-    fopen = open(path, 'r', encoding='UTF-8')
-    questionList = json.loads(fopen.read())
-    fopen.close()
-    # judge用于判断是马原还是毛概
-    if judge:
-        flag = flag1
-    else:
-        flag = flag2
-    while flag < len(questionList):
-        i = questionList[flag]
-        while True:
-            os.system(clear)
-            print(flag + 1, '/', len(questionList))
-            if len(i['Answer']) > 1:
-                print('注意:此题为多选题')
-            print(i['Description'])
-            for item in i['Choice']:
-                print(item)
-            answer = input('请输入答案:')
-            if answer == i['Answer']:
-                break
-        flag = flag + 1
-        # 判断存档顺序
-        if judge:
-            saveFile(flag, flag2)
-        else:
-            saveFile(flag1, flag)
+from func.order import getOrderQuestion
+from func.random import getRandomQuestion
+from func.exam import getExam
+from func.error import getError
 
 
 def main():
-    flag1, flag2 = readFile()  # flag表示马原进度，flag2表示毛概进度
     # 根据不同平台使用不同的清屏命令
     if platform.system() == 'Windows':
         clear = 'cls'
     else:
         clear = 'clear'
-    path = ['./archive/mayuan.json', './archive/maogai.json']
-    choice = input("请输入刷题科目:1.马原 2.毛概\n")
-    # 因为有存档的需要，所以两个flag都需要作为参数传递
-    if choice == '1':
-        getQuestion(flag1, flag2, clear, path[0], True)
-    elif choice == '2':
-        getQuestion(flag1, flag2, clear, path[1], False)
-    empty = input("题目已刷完,是否清空进度以便二刷?(y/n)")
-    if empty == 'y':
-        if choice == '1':
-            flag1 = 0
-        elif choice == '2':
-            flag2 = 0
-        saveFile(flag1, flag2)
+    pathList = [['./archive/mayuan.json', './archive/mayuan.flag'],
+                ['./archive/maogai.json', './archive/maogai.flag']]
+    subject = input("请输入刷题科目:1.马原 2.毛概\n")
+    if subject == 1:
+        path = pathList[0]
+    elif subject == 1:
+        path = pathList[1]
+    else:
+        print("输入错误，正在退出……")
+        return
+    function = input("请输入功能:\n1.顺序刷题\n2.随机刷题\n3.考试模拟\n4.错题本\n")
+    if function == 1:
+        pass
+    elif function == 2:
+        pass
+    elif function == 3:
+        pass
+    elif function == 4:
+        pass
+    else:
+        print("输入错误，正在退出……")
+        return
 
 
 if __name__ == "__main__":
