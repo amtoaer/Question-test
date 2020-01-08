@@ -1,5 +1,5 @@
-import json
 import random
+import os
 from func.question import question
 from func.file import readJsonFile
 
@@ -20,4 +20,5 @@ def getExam(path, clear):
     for item in examList:
         question(item, count, len(examList), clear)
         count = count+1
+    os.system(clear)
     print('考试结束，退出程序...')

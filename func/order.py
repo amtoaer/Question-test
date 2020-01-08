@@ -15,6 +15,7 @@ def getOrderQuestion(path, clear):
             saveError(path[2], i)
         flag = flag + 1
         saveFile(path[1], flag)
+    os.system(clear)
     empty = input('当前题库已刷完，是否清空进度以便二刷？(y/n)\n')
     if empty == 'y':
         flag = 0
