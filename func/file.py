@@ -20,3 +20,10 @@ def saveFile(path, content):
     content = str(content)
     fopen.write(content)
     fopen.close()
+
+
+def saveJsonFile(path, content):
+    fopen = open(path, 'w', encoding='UTF-8')
+    content = json.dumps(content, ensure_ascii=False)
+    fopen.write(content)
+    fopen.close()

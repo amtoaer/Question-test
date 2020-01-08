@@ -32,7 +32,7 @@ def main():
     elif function == '3':
         getExam(path, clear)
     elif function == '4':
-        pass
+        getError(path, clear)
     else:
         print("输入错误，正在退出...")
         return

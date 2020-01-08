@@ -2,6 +2,8 @@ import os
 
 
 def question(i, flag, length, clear):
+    # 该bool值用于判断是否一次做对
+    isWrong = False
     while True:
         os.system(clear)
         print(flag + 1, '/', length)
@@ -12,4 +14,5 @@ def question(i, flag, length, clear):
             print(item)
         answer = input('请输入答案:')
         if answer == i['Answer']:
-            return
+            return isWrong
+        isWrong = True
