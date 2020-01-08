@@ -1,11 +1,13 @@
 <h1 align="center">- 马原毛概刷题工具 -</h1>
+![screenshot](./picture/screenshot.svg)
 <p align="center">
 <img src="https://img.shields.io/badge/language-python-blue.svg?longCache=true&style=for-the-badge">
 <img src="https://img.shields.io/badge/license-MIT-orange.svg?longCache=true&style=for-the-badge">
 <img src="https://img.shields.io/badge/version-v0.0.3-red.svg?longCache=true&style=for-the-badge">
 </p>
 
-> 项目题库使用`json`格式存储，欢迎使用该题库进行二次开发！
+## 介绍
+> 该项目题库使用`json`格式存储，欢迎使用该题库进行二次开发！
 
 本项目为马原、毛概的选择题刷题工具，题目大体按照章节顺序排布。如遇题目缺字、错字等问题，或者有功能上的建议，欢迎提`issue`反馈。
 
