@@ -1,17 +1,15 @@
 import json
 import os
-from file import saveFile
+from func.file import *
 
 
-def getOrderQuestion(flag1, flag2, clear, path, judge):
-    fopen = open(path, 'r', encoding='UTF-8')
+def getOrderQuestion(path, clear):
+    # 参数为路径和清屏命令
+    fopen = open(path[0], 'r', encoding='UTF-8')
     questionList = json.loads(fopen.read())
     fopen.close()
-    # judge用于判断是马原还是毛概
-    if judge:
-        flag = flag1
-    else:
-        flag = flag2
+    # flag为当前做题进度
+    flag = int(readFile(path[1]))
     while flag < len(questionList):
         i = questionList[flag]
         while True:
@@ -26,8 +24,8 @@ def getOrderQuestion(flag1, flag2, clear, path, judge):
             if answer == i['Answer']:
                 break
         flag = flag + 1
-        # 判断存档顺序
-        if judge:
-            saveFile(flag, flag2)
-        else:
-            saveFile(flag1, flag)
+        saveFile(path[1], flag)
+    empty = input('当前题库已刷完，是否清空进度以便二刷？(y/n)\n')
+    if empty == 'y':
+        flag = 0
+        saveFile(path[1], flag)

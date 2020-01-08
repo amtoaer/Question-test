@@ -13,24 +13,25 @@ def main():
         clear = 'cls'
     else:
         clear = 'clear'
-    pathList = [['./archive/mayuan.json', './archive/mayuan.flag'],
-                ['./archive/maogai.json', './archive/maogai.flag']]
+    # 从左到右依次为：题库路径，存档路径，错题本路径
+    pathList = [['./archive/mayuan.json', './archive/mayuan.flag', './archive/mayuan.error'],
+                ['./archive/maogai.json', './archive/maogai.flag', './archive/mayuan.error']]
     subject = input("请输入刷题科目:1.马原 2.毛概\n")
-    if subject == 1:
+    if subject == '1':
         path = pathList[0]
-    elif subject == 1:
+    elif subject == '2':
         path = pathList[1]
     else:
         print("输入错误，正在退出……")
         return
     function = input("请输入功能:\n1.顺序刷题\n2.随机刷题\n3.考试模拟\n4.错题本\n")
-    if function == 1:
+    if function == '1':
+        getOrderQuestion(path, clear)
+    elif function == '2':
         pass
-    elif function == 2:
+    elif function == '3':
         pass
-    elif function == 3:
-        pass
-    elif function == 4:
+    elif function == '4':
         pass
     else:
         print("输入错误，正在退出……")

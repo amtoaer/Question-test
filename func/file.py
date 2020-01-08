@@ -1,14 +1,12 @@
-def readFile():
-    fopen = open('./archive/flag', 'r', encoding='UTF-8')
-    flag1 = fopen.readline()
-    flag2 = fopen.readline()
+def readFile(path):
+    fopen = open(path, 'r', encoding='UTF-8')
+    content = fopen.read()
     fopen.close()
-    return int(flag1), int(flag2)
+    return content
 
 
-def saveFile(flag1, flag2):
-    fopen = open('./archive/flag', 'w', encoding='UTF-8')
-    flag1 = str(flag1)
-    flag2 = str(flag2)
-    fopen.write(flag1 + '\n' + flag2)
+def saveFile(path, content):
+    fopen = open(path, 'w', encoding='UTF-8')
+    content = str(content)
+    fopen.write(content)
     fopen.close()
