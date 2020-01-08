@@ -1,5 +1,7 @@
 <h1 align="center">- 马原毛概刷题工具 -</h1>
-![screenshot](./picture/screenshot.svg)
+<p align="center">
+<img src="./picture/screenshot.svg">
+</p>
 <p align="center">
 <img src="https://img.shields.io/badge/language-python-blue.svg?longCache=true&style=for-the-badge">
 <img src="https://img.shields.io/badge/license-MIT-orange.svg?longCache=true&style=for-the-badge">
