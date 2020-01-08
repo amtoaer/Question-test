@@ -30,11 +30,11 @@ def main():
     elif function == '2':
         getRandomQuestion(path, clear)
     elif function == '3':
-        pass
+        getExam(path, clear)
     elif function == '4':
         pass
     else:
-        print("输入错误，正在退出……")
+        print("输入错误，正在退出...")
         return
 
 

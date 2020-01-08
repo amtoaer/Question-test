@@ -1,14 +1,10 @@
-import json
 import os
-from func.file import *
+from func.file import readFile, readJsonFile, saveFile
 from func.question import question
 
 
 def getOrderQuestion(path, clear):
-    # 参数为路径和清屏命令
-    fopen = open(path[0], 'r', encoding='UTF-8')
-    questionList = json.loads(fopen.read())
-    fopen.close()
+    questionList = readJsonFile(path[0])
     # flag为当前做题进度
     flag = int(readFile(path[1]))
     while flag < len(questionList):
