@@ -28,7 +28,7 @@ def main():
     if function == '1':
         getOrderQuestion(path, clear)
     elif function == '2':
-        pass
+        getRandomQuestion(path, clear)
     elif function == '3':
         pass
     elif function == '4':

@@ -1,6 +1,7 @@
 import json
 import os
 from func.file import *
+from func.question import question
 
 
 def getOrderQuestion(path, clear):
@@ -12,17 +13,7 @@ def getOrderQuestion(path, clear):
     flag = int(readFile(path[1]))
     while flag < len(questionList):
         i = questionList[flag]
-        while True:
-            os.system(clear)
-            print(flag + 1, '/', len(questionList))
-            if len(i['Answer']) > 1:
-                print('注意:此题为多选题')
-            print(i['Description'])
-            for item in i['Choice']:
-                print(item)
-            answer = input('请输入答案:')
-            if answer == i['Answer']:
-                break
+        question(i, flag, len(questionList), clear)
         flag = flag + 1
         saveFile(path[1], flag)
     empty = input('当前题库已刷完，是否清空进度以便二刷？(y/n)\n')
