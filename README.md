@@ -8,12 +8,21 @@
 ```c++
 .
 ├── archive
-│   ├── flag //当前题目进度
-│   ├── maogai.json //毛概题库
-│   └── mayuan.json //马原题库
+│   ├── *.error //错题本
+│   ├── *.flag //刷题进度
+│   └── *.json //题库
+├── func
+│   ├── __init__.py //package标识
+│   ├── file.py //文件存取
+│   ├── question.py //题目输出
+│   ├── order.py //顺序刷题
+│   ├── random.py //随机刷题
+│   ├── exam.py //考试模拟
+│   └── error.py //错题存取
 ├── LICENSE //许可证
 ├── README.md //说明文档
 └── test //主程序
+
 ```
 
 
@@ -21,16 +30,16 @@
 ## 功能
 
 + [x] 顺序刷题
-+ [ ] 随机刷题
-+ [ ] 考试模拟
-+ [ ] 错题本
++ [x] 随机刷题
++ [x] 考试模拟
++ [x] 错题本
 
 ## 用法
 
 Linux / Mac OS:
 
 ```bash
-git clone git@github.com:jeasonlau/Question-test.git
+git clone https://github.com/jeasonlau/Question-test
 cd ./Question-test
 sudo chmod +x ./test
 ./test
@@ -40,7 +49,7 @@ Windows:
 
 + 拥有`python`环境：
 
-  使用`git clone git@github.com:jeasonlau/Question-test.git`或点击`Download ZIP`下载该仓库，在仓库根目录下打开`cmd`/`powershell`，输入`python ./test`运行
+  使用`git clone https://github.com/jeasonlau/Question-test`或点击`Download ZIP`下载该仓库，在仓库根目录下打开`cmd`/`powershell`，输入`python ./test`运行
 
 + 没有`python`环境：
 
