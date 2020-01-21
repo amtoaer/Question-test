@@ -5,7 +5,7 @@
 <p align="center">
 <img src="https://img.shields.io/badge/language-python-blue.svg?longCache=true&style=for-the-badge">
 <img src="https://img.shields.io/badge/license-MIT-orange.svg?longCache=true&style=for-the-badge">
-<img src="https://img.shields.io/badge/version-v0.0.3-red.svg?longCache=true&style=for-the-badge">
+<img src="https://img.shields.io/badge/version-v0.0.4-red.svg?longCache=true&style=for-the-badge">
 </p>
 
 ## 介绍

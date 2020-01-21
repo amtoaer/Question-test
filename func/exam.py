@@ -2,6 +2,7 @@ import random
 import os
 from func.question import question
 from func.file import readJsonFile
+from func.error import saveError
 
 
 def getExam(path, clear):
@@ -18,7 +19,9 @@ def getExam(path, clear):
             examList.append(questionList[flag])
     count = 0
     for item in examList:
-        question(item, count, len(examList), clear)
+        isWrong = question(item, count, len(examList), clear)
+        if isWrong:
+            saveError(path[2], item)
         count = count+1
     os.system(clear)
     print('考试结束，退出程序...')
