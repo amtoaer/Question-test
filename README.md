@@ -8,6 +8,10 @@
 <img src="https://img.shields.io/badge/version-v0.0.4-red.svg?longCache=true&style=for-the-badge">
 </p>
 
+> 注意：答案错误后会清空答案并自动记录到错题本，无显式的答案错误提示；答案正确才会切换到下一题。
+>
+> It's not a bug, it's a feature!
+
 ## 介绍
 > 该项目题库使用`json`格式存储，欢迎使用该题库进行二次开发！
 
