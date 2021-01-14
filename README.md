@@ -63,7 +63,7 @@ Windows:
 
 + 拥有`python`环境：
 
-  使用`git clone https://github.com/jeasonlau/Question-test`或点击`Download ZIP`下载该仓库，在仓库根目录下打开`cmd`/`powershell`，输入`python ./test`运行
+  使用`git clone https://github.com/amtoaer/Question-test`或点击`Download ZIP`下载该仓库，在仓库根目录下打开`cmd`/`powershell`（以`powershell`为例：在文件夹空白处shift+鼠标右键，点击`在此处打开Powershell`），输入`python test`运行
 
 + 没有`python`环境：
 
